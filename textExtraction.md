@@ -19,3 +19,8 @@ def extract_telugu_text(image_path):
 image_path = '/path/to/your/image.png'
 telugu_text = extract_telugu_text(image_path)
 print(telugu_text)
+
+
+
+# learning so far
+ఎన్నికల is a string of length 7 where న్ని has 4 charecters 'న', '్', 'న', 'ి'
