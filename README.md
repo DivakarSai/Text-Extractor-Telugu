@@ -1,0 +1,1 @@
+A tool to extract the text on the scrollings of Telugu news channels.
