@@ -39,7 +39,6 @@ def text_from_video(cap, frame_count):
     final_string = ""
 
 
-
     # Read frames from the video
     for i in range(frame_count):
         # Read the next frame

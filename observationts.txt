@@ -1,0 +1,8 @@
+gray scale is working fine
+
+contrast enhancement is giving rise to terrible results
+
+thresholding after grayscaling is removing a few errors caused by misreads(doesnt change the the time much)
+
+using inverted image doesnt seem to change anything
+
