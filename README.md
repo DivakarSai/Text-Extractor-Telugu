@@ -1,4 +1,4 @@
-A tool to extract the text on the scrollings of Telugu news channels.
+A tool to extract the text on the Scrolling News Tickers of Telugu news channels.
 
 # text-extractor
 Instructions for Installations
