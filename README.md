@@ -10,7 +10,7 @@ Make sure python is properly installed
 Make sure pip is properly installed , [Installing pip if not present](https://pip.pypa.io/en/stable/installation/)
 
 Install virtualenv
-virtualenv is a tool to create isolated Python projects. Think of it, as a cleanroom, isolated from other virsions of Python and libriries.
+virtualenv is a tool to create isolated Python projects. Think of it, as a cleanroom, isolated from other versions of Python and libriries.
 
 Enter this command into terminal
 ```
