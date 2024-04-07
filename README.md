@@ -1,5 +1,7 @@
 A tool to extract the text on the Scrolling News Tickers of Telugu news channels.
 
+Get Tesseract OCR 4 (https://github.com/tesseract-ocr/tesseract)
+
 # text-extractor
 Instructions for Installations
 

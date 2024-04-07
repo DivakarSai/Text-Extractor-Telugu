@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 class Video():
-    def __init__(self, path, ocr = None, language = None):
+    def __init__(self, path, ocr = None, language = "Telugu"):
         video = cv2.VideoCapture(path)
         
         self.video_capture = video

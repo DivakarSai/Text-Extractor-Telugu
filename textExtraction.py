@@ -5,6 +5,20 @@ from PIL import Image
 
 frame_gap = 50
 
+
+# Filter out text clusters with low confidence
+def filter_text_clusters(extracted_text, confidence_threshold=75):
+    filtered_clusters = []
+    for i in range(len(extracted_text['text'])):
+        text = extracted_text['text'][i].strip()
+        if text:
+            confidence = int(extracted_text['conf'][i])
+            if confidence >= confidence_threshold:
+                filtered_clusters.append((text, confidence))
+
+    # return normal text
+    return ' '.join([text for text, _ in filtered_clusters])
+
 def stitch_strings(first_string, second_string):
 
 
@@ -43,7 +57,6 @@ def text_from_image(image, window):
     roi = image[y : y + h, x : x + w]
 
     # do gray scale
-
     gray_roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
 
     # Perform thresholding
@@ -56,13 +69,14 @@ def text_from_image(image, window):
 
     # Set the language to Telugu
     custom_config = r"--oem 3 --psm 6 -l tel"
-    # Perform OCR on the cropped image
-    telugu_text = pytesseract.image_to_string(pil_image, config=custom_config)
-
+    # Perform OCR on the cropped image to get text and confidence
+    telugu_text = pytesseract.image_to_data(pil_image, config=custom_config, output_type=pytesseract.Output.DICT)
     # strip the first and last few characters to avoid noise
-    strip_front, strip_back = stripping_lengths(telugu_text)
+    # strip_front, strip_back = stripping_lengths(telugu_text)
 
-    telugu_text = telugu_text[strip_front:-strip_back]
+    # telugu_text = telugu_text[strip_front:-strip_back]
+
+    telugu_text = filter_text_clusters(telugu_text)
 
     return telugu_text
 
