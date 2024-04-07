@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 class Video():
-    def __init__(self, path, ocr = None, language = None):
+    def __init__(self, path, ocr = None, language = "Telugu"):
         video = cv2.VideoCapture(path)
         
         self.video_capture = video
@@ -46,12 +46,4 @@ class Video():
             return None
         return image
         
-    # def _test_language(self, language, frame_numbers, ocr):
-    #     frames = [self.frame(frame_number) for frame_number in frame_numbers]
-    #     output = ocr.read(frames, language = language)
-    #     confidence = 0
-    #     for word_list in output:
-    #       for word in word_list:
-    #           confidence+= word['confidence'] * len(word['text'])
-    #     return confidence
     
