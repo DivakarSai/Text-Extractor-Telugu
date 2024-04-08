@@ -1,17 +1,18 @@
 import cv2
 import numpy as np
 
-class Video():
-    def __init__(self, path, ocr = None, language = "Telugu"):
+
+class Video:
+    def __init__(self, path, ocr=None, language="Telugu"):
         video = cv2.VideoCapture(path)
-        
+
         self.video_capture = video
-        
+
         self.frame_rate = video.get(cv2.CAP_PROP_FPS)
         self.frame_duration = 1 / self.frame_rate
         self.frame_count = self._get_frame_count()
-        self.height = (int) (video.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        self.width = (int) (video.get(cv2.CAP_PROP_FRAME_WIDTH))
+        self.height = (int)(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        self.width = (int)(video.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.shape = [self.height, self.width, 3]
         if language is not None:
             self.language = language
@@ -19,25 +20,24 @@ class Video():
             self.language = self._guess_language(ocr)
         else:
             self.language = None
-    
+
     def __del__(self):
         del self.video_capture
-    
-    #CV2 function for this is not reliable
+
+    # CV2 function for this is not reliable
     def _get_frame_count(self):
         def got_frame(video):
             success, frm = video.read()
             return success
-        
+
         frame_count = 0
         while got_frame(self.video_capture):
-            frame_count+= 1
+            frame_count += 1
         self.video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
-        
+
         return frame_count
-    
-    
-    def frame(self, frame_number = None):
+
+    def frame(self, frame_number=None):
         if frame_number is not None:
             self.video_capture.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
         read_success, image = self.video_capture.read()
@@ -45,5 +45,3 @@ class Video():
         if not read_success:
             return None
         return image
-        
-    
