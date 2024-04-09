@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Input} from "@nextui-org/react";
 
 const UploadVideoComponent = ({ setProcessedData }) => {
   const [videoFile, setVideoFile] = useState(null);
@@ -38,25 +39,20 @@ const UploadVideoComponent = ({ setProcessedData }) => {
     <div>
       <h2>Upload Video</h2>
       <input type="file" accept="video/*" onChange={handleFileChange} />
-      <div>
-        <label>Language:</label>
-        <input type="text" value={language} onChange={(e) => setLanguage(e.target.value)} />
+      <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+      <Input type="text" label="Language" placeholder="Language of the text" />
       </div>
-      <div>
-        <label>X:</label>
-        <input type="text" value={x} onChange={(e) => setX(e.target.value)} />
+      <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+      <Input type="text" label="X" placeholder="Top of region of interest" />
       </div>
-      <div>
-        <label>Y:</label>
-        <input type="text" value={y} onChange={(e) => setY(e.target.value)} />
+      <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+      <Input type="text" label="Y" placeholder="left of region of interest" />
       </div>
-      <div>
-        <label>Width:</label>
-        <input type="text" value={w} onChange={(e) => setW(e.target.value)} />
+      <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+      <Input type="text" label="Width" placeholder="Width of region of interest" />
       </div>
-      <div>
-        <label>Height:</label>
-        <input type="text" value={h} onChange={(e) => setH(e.target.value)} />
+      <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+      <Input type="text" label="Height" placeholder="Height of region of interest" />
       </div>
       <button onClick={handleUpload}>Upload Video</button>
     </div>
