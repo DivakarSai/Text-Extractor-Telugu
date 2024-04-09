@@ -77,7 +77,7 @@ def text_from_image(image, window):
     return telugu_text
 
 
-def text_from_video(video, window):
+def scrolling_text_from_video(video, window):
     final_string = ""
     x, y, w, h = window
 
