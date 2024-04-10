@@ -7,7 +7,7 @@ def generate_image_with_bounding_box(frame, scrolling_region):
     image_path = "images/sample_image.jpg" 
     # Draw a bounding box on the frame
     x, y, w, h = scrolling_region
-    cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+    #cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     try:
         cv2.imwrite(image_path, frame)
